@@ -9,7 +9,7 @@
 #include <iostream>
 #include <string>
 
-int main(){
+int main() {
     std::string userNum;
     int userGuess;
     int correctNumber;
@@ -17,8 +17,8 @@ int main(){
 
     // generate random number between 0 and 9
     srand((unsigned)time(NULL));
-    correctNumber = rand() % 10 + 0;
-    while (true){
+    correctNumber = rand_r() % 10 + 0;
+    while (true) {
         // get user input as a string
         std::cout << "Welcome! Guess a number between 0 and 9: ";
         std::cin >> userNum;
@@ -29,17 +29,19 @@ int main(){
                 std::cout << userNum << " is not a valid integer.";
             } else {
                 if (userGuess < 0) {
-                    std::cout << "Please enter a positive integer." << std::endl;
+                    std::cout << "Please enter a positive integer."
+                    << std::endl;
                 } else {
                         if (userGuess == correctNumber) {
                         std::cout << "You guessed correctly" << std::endl;
                     } else {
-                            std::cout << "You guessed incorrectly, try again." << std::endl;
+                            std::cout << "You guessed incorrectly, try again."
+                            << std::endl;
                         }
                     }
                 }
         } catch (...) {
-            std::cout << "Please enter a valid integer." 
+            std::cout << "Please enter a valid integer."
             << std::endl;
         }
     }
