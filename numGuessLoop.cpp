@@ -19,27 +19,33 @@ int main() {
     srand((unsigned)time(NULL));
     correctNumber = rand_r() % 10 + 0;
     while (true) {
-        // get user input as a string
+        // welcome message
         std::cout << "Welcome! Guess a number between 0 and 9: ";
         std::cin >> userNum;
 
         try {
+            // change userNum from string to int
             int userGuess = std::stoi(userNum, &pos);
+            // if user enters a decimal
             if (userNum.length() != pos) {
                 std::cout << userNum << " is not a valid integer.";
             } else {
+                // if user enters a negative number
                 if (userGuess < 0) {
                     std::cout << "Please enter a positive integer."
                     << std::endl;
                 } else {
+                    // checks if guess is correct
                         if (userGuess == correctNumber) {
                         std::cout << "You guessed correctly" << std::endl;
                     } else {
+                        // if not correct print you guessed incorrectly
                             std::cout << "You guessed incorrectly, try again."
                             << std::endl;
                         }
                     }
                 }
+        // if user enters a non int
         } catch (...) {
             std::cout << "Please enter a valid integer."
             << std::endl;
